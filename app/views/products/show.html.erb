@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="product.scss"/>
+<div class="container">
+    
+  <div class="row">
+  <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+          <li> <%= link_to "Comment", show_comments_path(:id=>@product.id)%></li>
+          <li><a href="#">Відеоогляд</a></li>
+        </ul>
+    </nav> 
+   <div class="block2">
+      <div id="menu2">
+          <h3>more photo</h3>
+          <%= image_tag @product.photo_file_name, size:"400x300"%> <br> 
+
+        </div>
+
+        <div class="content2">
+              
+          
+              <%= @product.description%> <br> 
+              <br>
+              <h5 class="price-text-color" style="text-align: right;"> Ціна: <%= @product.cost%> <br> </h5>
+              <h5> Місце знаходження : <%= @product.maker%> <br></h5>
+
+  		
+  			       <%= link_to "Buy", buy_product_path(:id=>@product.id), class: "btn btn-danger" %>
+   	
+         </div> 
+    </div>
+
+
+
+
+  </div>
+</div>

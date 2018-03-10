@@ -1,0 +1,12 @@
+<% if current_user.userparam != nil %>
+ 	<p> <%= image_tag current_user.userparam.avatar.url(:thumb), size: '400x400', class: 'img-rounded'%> </p>
+ 	<%= link_to "Edit info", userparams_edit_path(current_user)%>
+ <% else %>
+ 
+<%= link_to "Add info", userparams_new_path %>
+
+
+ <%end%>
+
+
+<%= link_to "Back", root_path %>

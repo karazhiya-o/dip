@@ -1,0 +1,42 @@
+
+<link rel="stylesheet" href="home.scss"/>
+<div class="container">
+				<div id="menu">
+					<h3>maps</h3>
+				</div>
+	<div class="row">
+			
+			<div id="content">	
+			<% @products.each do |product| %>	
+				<div class="col-sm-4">
+				    <div class="panel panel-varning">
+					        <div class="panel-heading">
+					       	 	<h3><%= link_to product.prname, product_path(product) %></h3>
+					        </div>
+
+					        <div class="panel-body">
+								<%= image_tag product.photo_file_name, size:"200x200" %> <br /> 
+							</div>
+
+							<div class="panel-footer">
+							  <p class="text-center">
+								<strong> <%= product.maker %> <br /> </strong>
+								
+								<%= product.cost %> <br />
+									
+								
+								<% if product.is_here ==true %>
+								Aviable
+								<% else %>
+								Adisable
+								<%end%>
+							  </p>
+							</div>
+					</div>
+				</div> 
+			<% end %>	
+			</div>
+			
+	</div>
+</div>
+

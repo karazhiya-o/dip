@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Відпочинок Закарпаття </title>
+    
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tag %>
+  </head>
+
+  <body>
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+    </div>
+    <ul class="nav navbar-nav">
+    <li><%= link_to "Рекреаційні зони", root_path%> <span class="glyphicon glyphicon-user"></span> </li>
+      <% if user_signed_in? %>
+      <li class="active"> <%= link_to "My Cart", orders_path %> <span class="glyphicon glyphicon-shopping-cart"></span> </li>
+      <li><%= link_to current_user.email, profile_path  %></li>
+      <li><%= link_to 'Logout', sign_out_path %></li>
+       <% else %>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to 'Registration', sign_up_path %><span class="glyphicon glyphicon-user"></span> </li>
+      <li><%= link_to 'Login', sign_in_path %> <span class="glyphicon glyphicon-log-in"></span> </li>
+       <% end %>
+    </ul>
+  </div>
+</nav> 
+  <%= yield %>
+
+  </body>
+</html>
+
