@@ -1,42 +1,58 @@
 
 <link rel="stylesheet" href="home.scss"/>
-<div class="container">
-				<div id="menu">
-					<h3>maps</h3>
-				</div>
-	<div class="row">
-			
-			<div id="content">	
+
+<div class="container content">
+		<div id="map-canvas"></div>	
+<div class="row">
+			<div class="col-md-25 products">	
+
+	
 			<% @products.each do |product| %>	
 				<div class="col-sm-4">
-				    <div class="panel panel-varning">
-					        <div class="panel-heading">
-					       	 	<h3><%= link_to product.prname, product_path(product) %></h3>
+				    <div class="product">
+					        <div class="product-title">
+					       	 	<%= link_to product.prname, product_path(product) %>
 					        </div>
 
-					        <div class="panel-body">
+					        <div class="product-img">
 								<%= image_tag product.photo_file_name, size:"200x200" %> <br /> 
 							</div>
 
 							<div class="panel-footer">
-							  <p class="text-center">
-								<strong> <%= product.maker %> <br /> </strong>
+							  <h5 class="product-desc">
+								<%= product.maker %> </h5><br /><br />
 								
-								<%= product.cost %> <br />
-									
+							<p class = "product-price">	<%= product.cost %> </p>
 								
-								<% if product.is_here ==true %>
-								Aviable
-								<% else %>
-								Adisable
-								<%end%>
-							  </p>
 							</div>
 					</div>
 				</div> 
 			<% end %>	
-			</div>
+	</div>
+	
+
+
 			
 	</div>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+	function initialize(){
+		var mapCanvas = document.getElementById('map-canvas');
+		var mapOptions = {
+			center: new google.maps.LatLng(48.27,22.9),
+			zoom: 8,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		}
+		var map = new google.maps.Map(mapCanvas, mapOptions)
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(48.27,22.9),
+			title:"Here"
+
+		});
+		marker.setMap(map);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 

@@ -1,27 +1,140 @@
-#block2 {
-background-color: #d2d0d2;
-width: 90%;
-height: auto;
-border: 2px grey solid ;
+
+#maps {
+    
+    width: 74%;
+    height: 400px;
+    border: 1px black solid;
+    margin-left:35px;
+    margin-bottom:10px;
+    margin-top:10px;
+    }
+
+body {
+
+            background: #f3f2f3;
+
+            color: #000000;
+
+            font-family: Trebuchet MS, Arial, Times New Roman;
+
+            font-size: 12px;
+
 }
 
-.price-text-color
-{
-    color: #219FD1;
-    font-size: 18px;
-    font-weight: bold; 
+ 
+
+#container {
+
+           
+
+            margin: 30px auto;
+
+            width: 100%;
+
+            height: 1000px;
+
 }
 
-#menu2 {
-border: 2px black;
-float: left;
-width: 40%;
-height: 600px;
+ 
+
+#header {
+
+           border: 1px black solid;
+           margin-top:45px;
+           margin-bottom:30px;
+            height: 10%;
+
+            width: 100%;
+
 }
 
-#content2 {
-background: #d2d0d2;
-float: right;
-width: 60%;
-height: auto;
+
+#navigation {
+
+          
+
+            width: 100%;
+
+            height: 50px;
+            margin-bottom: 15px;
+
+}
+
+ 
+
+#menu {
+
+           border: 1px black solid;
+
+            float: right;
+
+            width: 20%;
+            position: absolute;
+            right: 5px;
+  
+
+            height: 400px;
+            margin-right:30px;
+
+}
+
+ 
+
+#content {
+
+           border: 1px black solid;
+
+            float: left;
+
+  margin-left:35px;
+  margin-bottom:10px;
+
+            width: 74%;
+
+            height: 600px;
+
+}
+
+
+#footer {
+
+            border: 1px black solid;
+
+            height: 180px;
+
+            width: 74%;
+              margin-left:35px;
+
+}
+
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+p{
+    font-family: courier !important;
+    font-size: 45px !important;
+    font-weight: bold !important;
+    text-align:center !important;
 }

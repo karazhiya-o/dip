@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20170519131145) do
     t.float    "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_cart"
+    t.boolean  "is_cart"
   end
 
   create_table "products", force: :cascade do |t|

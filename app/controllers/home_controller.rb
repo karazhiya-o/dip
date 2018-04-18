@@ -5,10 +5,26 @@ class HomeController < ApplicationController
 		  def index
 		  	@products = Product.all
 		   	#@order = Order.where(is_cart: true).count
+		   	@products = if params[:term]
+    			Product.where('maker LIKE ?', "%#{params[:term]}%")
+  			else
+    			Product.all
+  			end
 		  end
 
-		  def show
-		  		
+		def show
+		  	#@products = Product.all	
+		  	@products = Product.search(params[:term])
 
-		  end
+		  	
+		end
+
+		def google_map(center)
+  			"https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17"
+		end
+
+		def task_params
+  			params.require(:products).permit(:prname, :maker, :description, :year, :cost)
+		end
+
 end
