@@ -2,21 +2,21 @@ class HomeController < ApplicationController
 	#before_action :authenticate_user!, except: [:show], except: [:index]
 
 
+
 		  def index
 		  	@products = Product.all
 		   	#@order = Order.where(is_cart: true).count
 		   	@products = if params[:term]
     			Product.where('maker LIKE ?', "%#{params[:term]}%")
   			else
-    			Product.all
+    			
   			end
 		  end
 
 		def show
 		  	#@products = Product.all	
 		  	@products = Product.search(params[:term])
-
-		  	
+		  		  	
 		end
 
 		def google_map(center)

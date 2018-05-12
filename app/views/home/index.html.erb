@@ -1,8 +1,9 @@
 
 <link rel="stylesheet" href="home.scss"/>
-
+<body>
 <div class="container content">
-		<div id="map-canvas"></div>	
+		<div id="map-canvas"></div>
+
 <div class="row">
 			<div class="col-md-25 products">	
 
@@ -10,8 +11,8 @@
 			<% @products.each do |product| %>	
 				<div class="col-sm-4">
 				    <div class="product">
-					        <div class="product-title">
-					       	 	<%= link_to product.prname, product_path(product) %>
+					        <div class="title">
+					         	<%= link_to product.prname, product_path(product) %>
 					        </div>
 
 					        <div class="product-img">
@@ -19,10 +20,9 @@
 							</div>
 
 							<div class="panel-footer">
-							  <h5 class="product-desc">
-								<%= product.maker %> </h5><br /><br />
+							  <h4>	<%= product.maker %> </h4> <hr>
 								
-							<p class = "product-price">	<%= product.cost %> </p>
+							<h4>	<%= product.cost %> </h4>
 								
 							</div>
 					</div>
@@ -38,21 +38,41 @@
 
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script>
-	function initialize(){
+	
+function initialize(){
+
+ var features = [
+          {
+            position: new google.maps.LatLng(48.625148, 22.947258),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(48.5610078, 22.4374783),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(48.6236075, 22.9333669),
+            type: 'info'
+          }];
+
+ 		features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position
+           
+          });
+        });
 		var mapCanvas = document.getElementById('map-canvas');
 		var mapOptions = {
 			center: new google.maps.LatLng(48.27,22.9),
 			zoom: 8,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
-		var map = new google.maps.Map(mapCanvas, mapOptions)
-		var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(48.27,22.9),
-			title:"Here"
+		var map = new google.maps.Map(mapCanvas, mapOptions);
 
-		});
+		
+
 		marker.setMap(map);
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
+
 </script>
 
+		</body>

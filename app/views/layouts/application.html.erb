@@ -16,7 +16,7 @@
     <li><%= link_to "Рекреаційні зони", root_path%> </li>
       <% if user_signed_in? %>
       <li style="float:center;"> <%= link_to "My Cart", orders_path %></li>
-      <li style="float:center;"><%= link_to current_user.email, profile_path  %></li>
+      <li style="float:right;"><%= link_to current_user.email, profile_path  %></li>
       <li style="float:right;"><%= link_to 'Logout', sign_out_path %></li>
        <% else %>
     

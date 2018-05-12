@@ -1,3 +1,52 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+body{
+	height:600px !important;
+}
+
+span{
+    font-family: courier !important;
+    font-size: 27px !important;
+    font-weight: bold !important;
+    text-align:center !important;
+}
+#sidebar {
+	  		
+            float: left;
+
+            width: 30%;
+            position: absolute;
+            
+  			overflow-y: scroll;
+
+            height: 100%;
+           
+          
+
+}
+
+
+.container{
+   margin-top: 9%;
+  width:100%;
+}
+
+.content{
+  width:100%;
+  
+}
+
+
+#map {
+  
+ 
+  float: right;
+  position: fixed;
+  width: 69%;
+  height: 600px;
+  }

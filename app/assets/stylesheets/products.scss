@@ -1,112 +1,105 @@
+#container {
+           margin: 30px auto;
+            width: 100%;
+            height: 1000px;
+}
+
+#header {          
+           margin-top:10% !important;
+           margin-bottom:30px !important;
+            height: 8% !important;
+            width: 100% !important;
+}
+
+#navigation {   
+      width: 100%;
+      height: 50px;
+      margin-bottom: 15px;
+}
+
+#menu {
+  background: rgba(255,255,255,0.3);
+  -webkit-box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+  overflow: hidden;
+  border: none;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  
+  float: right;
+  width: 20%;
+  position: absolute;
+  right: 5px;
+  height: 400px;
+  margin-right:25px;
+}
+
+#content {
+  float: left;
+  margin-left:35px;
+  margin-bottom:10px;
+   -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  overflow: hidden;
+  border: none;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  font-family: 'Palanquin', sams-serif;
+  
+ 
+  background: rgba(255,255,255,0.3);
+  -webkit-box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+            width: 74%;
+
+            height: 1200px;
+           
+}
 
 #maps {
+
+background: rgba(255,255,255,0.3);
+  -webkit-box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+  overflow: hidden;
+  border: none;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+
+
     
     width: 74%;
     height: 400px;
-    border: 1px black solid;
+ 
     margin-left:35px;
     margin-bottom:10px;
     margin-top:10px;
     }
 
-body {
-
-            background: #f3f2f3;
-
-            color: #000000;
-
-            font-family: Trebuchet MS, Arial, Times New Roman;
-
-            font-size: 12px;
-
-}
-
- 
-
-#container {
-
-           
-
-            margin: 30px auto;
-
-            width: 100%;
-
-            height: 1000px;
-
-}
-
- 
-
-#header {
-
-           border: 1px black solid;
-           margin-top:45px;
-           margin-bottom:30px;
-            height: 10%;
-
-            width: 100%;
-
-}
+#comments
+{
 
 
-#navigation {
-
-          
-
-            width: 100%;
-
-            height: 50px;
-            margin-bottom: 15px;
-
-}
-
- 
-
-#menu {
-
-           border: 1px black solid;
-
-            float: right;
-
-            width: 20%;
-            position: absolute;
-            right: 5px;
+background: rgba(255,255,255,0.3);
+  -webkit-box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+  overflow: hidden;
+  border: none;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
   
-
-            height: 400px;
-            margin-right:30px;
-
+  width: 74%;
+    
+   
+    margin-left:35px;
+    margin-bottom:10px;
+    margin-top:10px;
 }
-
- 
-
-#content {
-
-           border: 1px black solid;
-
-            float: left;
-
-  margin-left:35px;
-  margin-bottom:10px;
-
-            width: 74%;
-
-            height: 600px;
-
-}
-
-
-#footer {
-
-            border: 1px black solid;
-
-            height: 180px;
-
-            width: 74%;
-              margin-left:35px;
-
-}
-
 
 
 .navbar {
@@ -132,9 +125,28 @@ body {
   color: black;
 }
 
-p{
-    font-family: courier !important;
-    font-size: 45px !important;
-    font-weight: bold !important;
-    text-align:center !important;
+.but{
+  text-decoration: none;
+ 
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  cursor: pointer;
+  margin-left: 56%;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #018dc4;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  
+  
+  text-overflow: clip;
+  background: #0199d9;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
 }

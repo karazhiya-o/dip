@@ -16,6 +16,7 @@ class UserparamsController < ApplicationController
 
   def edit
       @userparam = Userparam.find_by_user_id(current_user.id)
+      
   end
 
   def update

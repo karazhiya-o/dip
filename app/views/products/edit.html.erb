@@ -1,0 +1,41 @@
+<div class="block", style="margin-top: 450px;">  
+  
+    <%= form_for @product do |f|%>
+          <div class = "form-group">
+          <%= f.label :prname %>
+          <%= f.text_field :prname, class: "form-control" %>
+          </div>
+
+          <div class = "form-group">
+          <%= f.label :maker %>
+          <%= f.text_field :maker, class: "form-control" %>
+          </div>
+
+
+          <div class = "form-group">
+          <%= f.label :description %> <br>
+          <%= f.text_area :description, class: "tinymce", :rows => 30, :cols => 50 %>
+          <%= tinymce %>
+          </div>
+
+          <div class = "form-group">
+          <%= f.label :year %>
+          <%= f.text_field :year, class: "form-control" %>
+          </div>
+
+
+          <div class = "form-group">
+          <%= f.label :cost %>
+          <%= f.text_field :cost, class: "form-control" %>
+          </div>
+
+          <div class = "form-group">
+          <%= f.button :submit, class: "btn btn-info pull-right" %>
+          </div>
+
+
+    <% end %>
+
+   
+</div>
+

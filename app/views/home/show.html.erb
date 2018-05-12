@@ -5,8 +5,10 @@
 <fieldset class="field-container">
 	
   	<%= form_tag(show_path, method: :get) do %>
-	<%= text_field_tag :term, params[:term], class: 'text_field_tag' %>
-			 <!-- <%= submit_tag 'Search', maker: nil %> -->
+	<%= text_field_tag :term, params[:term], :class => 'area' %>
+		<!-- <%= submit_tag 'Search', :class => 'btn btn-ligth btn-lg'%> -->
+     
+
 	<% end %>
 
 </fieldset>

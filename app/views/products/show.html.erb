@@ -1,62 +1,104 @@
-<link rel="stylesheet" href="products.scss"/>
+<html>
+  <head>
+ <link rel="stylesheet" type="text/css" href="products.css" media="screen" />
+ <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"> 
+  </head>
+
 
 <body>
 
- 
+    <div id="container">
+       <div id="header">
+           <div class="fancybox">
+           <center>
+           <%= image_tag @product.photo_file_name, size:'1300x480', :class => 'fancybox'%> 
 
-<div id="container">
- <div id="header">
-  <%= image_tag @product.photo_file_name%> <br> 
-</div>
-
-
-
-
- <div id="menu">
- <p style="font-size: 22px !important;"> Від <%= @product.cost%> за добу</p>
- <hr>
- <%= link_to "Comment", show_comments_path(:id=>@product.id)%>
- <hr>
- <%= link_to "Зберегти", buy_product_path(:id=>@product.id), class: "btn btn-danger" %> 
- <hr>
- <h3>Прибуття - вибуття</h3>
-</div>
-
- <div id="content">
-<p><%= @product.prname%></p>
-<hr>
- <%= @product.description%> <br> 
- <hr>
-   <h5> Місце знаходження : <%= @product.maker%> <br></h5>
-
-</div>
-
-
-    <div id="maps"></div>   
+           </center>
+          </div>
+        </div>
 
 
 
-</div>
 
 
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<script>
-  function initialize(){
-    var mapCanvas = document.getElementById('maps');
-    
-    var mapOptions = {
-      center: new google.maps.LatLng(48.27,22.9),
-      zoom: 8,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(mapCanvas, mapOptions)
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(48.27,22.9),
-      title:"Here"
+       <div id="menu">
+         <p style="font-size: 22px !important; text-align: center;"> Від <%= @product.cost%> за добу</p>
+         
+         <hr>
+         <%= link_to "Зберегти", buy_product_path(:id=>@product.id), class: "but" %> 
+         <hr>
+          <center>
+         <h3>Як дібратись</h3>
+         </center>
+      </div>
 
-    });
-    marker.setMap(map);
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+
+
+       <div id="content">            
+         <h1 style="text-align: center; color: #003366;"><%=raw @product.prname%></h1> 
+         <hr>
+         <p><%=raw @product.description%> <br> </p>
+         <hr>
+         <center> <p> Місце знаходження : <%=raw @product.maker%>  </p> </center>
+         <hr>
+      </div>
+
+
+          <div id="maps"></div>   
+
+
+          <div id="comments">
+
+              <% if @comments == nil%>
+              <h6>Для даного закладу ще немає відгуків</h6>
+              <%else%>
+              
+              <% @comments.each do |comment|%>
+              <p style="font: 18px Georgia, Times New Roman, Times, serif !important; float:left; margin-left: 15px; margin-top: 20px;"> 
+              <%= comment.body%>
+              <p style="float:right; font: 18px Georgia, Times New Roman, Times, serif !important; margin-right:15px; margin-top: 20px;">
+              <%= link_to 'Delete', product_comment_path(:id=>comment.id), method: :put, data: { confirm: 'are_you_sure?' } %>
+                        </p> </p>
+              <br>
+              <hr>
+
+              <% end %>
+              <% end %>
+
+              <%= render 'comments/form' %>
+          </div>
+          
+      <!--
+      <%= text_area_tag :content, "", :class => "tinymce", :rows => 40, :cols => 70 %>
+      <%= tinymce %>
+      -->
+
+
+    </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize(){
+        var mapCanvas = document.getElementById('maps');
+        var Lat = (<%= @product.lat%>);
+        var Lng = (<%= @product.lng%>); 
+
+
+        var mapOptions = {
+          center: new google.maps.LatLng(Lat,Lng),
+          zoom: 11,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(Lat,Lng),
+          title:"Here"
+
+        });
+        marker.setMap(map);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 </body>
+</html>
