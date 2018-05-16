@@ -1,6 +1,6 @@
 <html>
   <head>
- <link rel="stylesheet" type="text/css" href="products.css" media="screen" />
+ <link rel="stylesheet" type="text/css" href="products.scss" media="screen" />
  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"> 
   </head>
 
@@ -8,20 +8,15 @@
 <body>
 
     <div id="container">
-       <div id="header">
-           <div class="fancybox">
-           <center>
-           <%= image_tag @product.photo_file_name, size:'1300x480', :class => 'fancybox'%> 
+      <div id="header">
 
-           </center>
-          </div>
-        </div>
+<a class="fancybox" rel="gallery1" href="/assets/<%= @product.photo_file_name%>">
+  <img src="/assets/<%= @product.photo_file_name%>"  width="1300" height="540"/>
+</a>
+          
+      </div>
 
-
-
-
-
-       <div id="menu">
+      <div id="menu">
          <p style="font-size: 22px !important; text-align: center;"> Від <%= @product.cost%> за добу</p>
          
          <hr>
@@ -29,12 +24,13 @@
          <hr>
           <center>
          <h3>Як дібратись</h3>
+        <div id="panel"></div>
          </center>
       </div>
 
 
 
-       <div id="content">            
+      <div id="content">            
          <h1 style="text-align: center; color: #003366;"><%=raw @product.prname%></h1> 
          <hr>
          <p><%=raw @product.description%> <br> </p>
@@ -44,10 +40,11 @@
       </div>
 
 
-          <div id="maps"></div>   
+      <div id="maps"></div>   
 
 
-          <div id="comments">
+
+      <div id="comments">
 
               <% if @comments == nil%>
               <h6>Для даного закладу ще немає відгуків</h6>
@@ -66,39 +63,87 @@
               <% end %>
 
               <%= render 'comments/form' %>
-          </div>
+      </div>
           
-      <!--
-      <%= text_area_tag :content, "", :class => "tinymce", :rows => 40, :cols => 70 %>
-      <%= tinymce %>
-      -->
-
-
     </div>
 
 
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script>
-      function initialize(){
-        var mapCanvas = document.getElementById('maps');
-        var Lat = (<%= @product.lat%>);
-        var Lng = (<%= @product.lng%>); 
+    <script type="text/javascript">
+     $(document).ready(function() {
+  $(".fancybox").fancybox({
+    openEffect  : 'none',
+    closeEffect : 'none'
+  });
+});
+   
+  </script>
+ <script>
+
+if (navigator.geolocation) { //Checks if browser supports geolocation
+   navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
+     var latitude = position.coords.latitude;                    //users current
+     var longitude = position.coords.longitude;                 //location
+     var coords = new google.maps.LatLng(latitude, longitude); //Creates variable for map coordinates
+    
+    var Lat = (<%= @product.lat%>);
+    var Lng = (<%= @product.lng%>);
+    var coordinates = new google.maps.LatLng(Lat, Lng); 
+    
+     var directionsService = new google.maps.DirectionsService();
+     var directionsDisplay = new google.maps.DirectionsRenderer();
+     var mapOptions = //Sets map options
+     {
+       zoom: 15,  //Sets zoom level (0-21)
+       center: coords, //zoom in on users location
+       mapTypeControl: true, //allows you to select map type eg. map or satellite
+       navigationControlOptions:
+       {
+         style: google.maps.NavigationControlStyle.SMALL //sets map controls size eg. zoom
+       },
+       mapTypeId: google.maps.MapTypeId.ROADMAP //sets type of map Options:ROADMAP, SATELLITE, HYBRID, TERRIAN
+     };
+     map = new google.maps.Map( /*creates Map variable*/ document.getElementById("maps"), mapOptions /*Creates a new map using the passed optional parameters in the mapOptions parameter.*/);
+     directionsDisplay.setMap(map);
+     directionsDisplay.setPanel(document.getElementById('panel'));
+     var request = {
+       origin: coords,
+       destination: coordinates,
+       travelMode: google.maps.DirectionsTravelMode.DRIVING
+     };
+
+     directionsService.route(request, function (response, status) {
+       if (status == google.maps.DirectionsStatus.OK) {
+         directionsDisplay.setDirections(response);
+       }
+     });
+   });
+ }
 
 
-        var mapOptions = {
-          center: new google.maps.LatLng(Lat,Lng),
-          zoom: 11,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(mapCanvas, mapOptions);
-        var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(Lat,Lng),
-          title:"Here"
 
-        });
-        marker.setMap(map);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {  
+  var start = document.getElementById('coords').value;  
+  var end = document.getElementById('coordinates').value;  
+  directionsService.route({  
+    origin: coords,  
+    destination: coordinates,  
+    travelMode: google.maps.TravelMode.DRIVING  
+  }, function(response, status) {  
+    if (status === google.maps.DirectionsStatus.OK) {  
+      directionsDisplay.setDirections(response);  
+    } else {  
+      window.alert('Directions request failed due to ' + status);  
+    }  
+  });  
+}
+
     </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz7uaBaPFkRM6TV6EPlajVqfPvmsCzjZw&callback=initMap">
+    </script>
+
+
 </body>
 </html>

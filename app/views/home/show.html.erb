@@ -2,21 +2,13 @@
 <link rel="stylesheet" href="show.scss"/>
 
  <h2 class="title-container">Знайдіть місто для відпочинку </h2>
+
 <fieldset class="field-container">
-	
-  	<%= form_tag(show_path, method: :get) do %>
-	<%= text_field_tag :term, params[:term], :class => 'area' %>
-		<!-- <%= submit_tag 'Search', :class => 'btn btn-ligth btn-lg'%> -->
-     
-
-	<% end %>
-
+   	<%= form_tag(show_path, method: :get) do %>
+  	<%= text_field_tag :term, params[:term], :class => 'area' %>
+  	<!-- <%= submit_tag 'Search', :class => 'btn btn-ligth btn-lg'%> -->
+  	<% end %>
 </fieldset>
-
-
-
-
-
 
 <div class="slideshow-container">
 
