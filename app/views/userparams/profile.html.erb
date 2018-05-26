@@ -1,13 +1,27 @@
-<% if current_user.userparam != nil %>
- 	<p> <%= image_tag current_user.userparam.avatar.url(:thumb), size: '400x400', class: 'img-rounded'%> </p>
- 	<br>
+<link rel="stylesheet" href="userparams.scss"/>
+<body>
+<div id="back">
+  <div class="backLeft">
+		<% if current_user.userparam != nil %>
+		 <p><%= image_tag current_user.userparam.avatar.url(:thumb), size: '300x300', class: 'img-rounded'%> </p>
+  </div>
+ 	<div class="backRight">
+ 	<p>Ім'я: <%= current_user.userparam.firstname%></p><br>
+ 	<p>Прізвище: <%= current_user.userparam.lastname%></p><br>
+ 	<p>Місто: <%= current_user.userparam.city%></p><br>
+ 	
+ 	
  	<%= link_to "Edit info", userparams_edit_path(current_user)%>
+
  <% else %>
  <br>
-<%= link_to "Add info", userparams_new_path %>
+<%= link_to " Add info", userparams_new_path %>
 
-
+</div>
  <%end%>
 
+<%= link_to " Back", root_path %>
 
-<%= link_to "Back", root_path %>
+</div>
+
+</body>

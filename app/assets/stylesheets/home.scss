@@ -55,7 +55,7 @@ body{
 .product {
   background: #fff none repeat scroll 0 0;
   border: 1px solid #c0c0c0;
-  height: 35%;
+  height: 40%;
 
   overflow: hidden;
   
@@ -75,9 +75,11 @@ body{
 
 .title{
   color: #000;
-  font: 22px Georgia, Times New Roman, Times, serif;
+  font: 20px Poppins, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  text-decoration: none;
+  
 }
+  .a:link
+  {text-decoration: none;}
 
 p { font-family: 'Poppins', Helvetica, Arial, sans-serif; }

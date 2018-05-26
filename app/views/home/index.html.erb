@@ -15,7 +15,7 @@
 					         	<%= link_to product.prname, product_path(product) %>
 					        </div>
 
-					        <div class="product-img">
+					        <div class="img">
 								<%= image_tag product.photo_file_name, size:"200x200" %> <br /> 
 							</div>
 
@@ -41,33 +41,30 @@
 	
 function initialize(){
 
- var features = [
-          {
-            position: new google.maps.LatLng(48.625148, 22.947258),
-            type: 'info'
-          }, {
-            position: new google.maps.LatLng(48.5610078, 22.4374783),
-            type: 'info'
-          }, {
-            position: new google.maps.LatLng(48.6236075, 22.9333669),
-            type: 'info'
-          }];
 
- 		features.forEach(function(feature) {
-          var marker = new google.maps.Marker({
-            position: feature.position
-           
-          });
-        });
 		var mapCanvas = document.getElementById('map-canvas');
 		var mapOptions = {
-			center: new google.maps.LatLng(48.27,22.9),
-			zoom: 8,
+			center: new google.maps.LatLng(48.60,22.9),
+			zoom: 11,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 		var map = new google.maps.Map(mapCanvas, mapOptions);
 
-		
+		locations = [
+    [48.6236075,22.9333669],
+    [48.625148,22.947258],
+    [48.5931465,22.972106],
+    
+    [48.5901842,22.9746168]
+  ];
+
+      for (var i=0; i<locations.length; i++) {
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+        map: map
+      })
+    }
+
 
 		marker.setMap(map);
 	}

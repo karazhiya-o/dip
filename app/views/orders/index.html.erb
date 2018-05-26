@@ -5,20 +5,15 @@
 
 <div id="sidebar">
 	<% @orders.each do |order| %>
-	<span> <%= order.product.prname %>  </span>
+	<center><span><%= link_to order.product.prname, product_path(order.product_id) %></span></center>
+	<br>
+		<a class="single_2" href="/assets/<%= order.product.photo_file_name%>">
+			 <img src="/assets/<%= order.product.photo_file_name%>"  width="350" height="210"/>
+		</a>
 	 <br>
-	
-	 	<div class="fancybox">
-	  <%= image_tag order.product.photo_file_name, size: '350x210'%> 
-	  </div>
-	  <br>
-	 
-
-	<span>  Від <%= order.product.cost%> за добу </span> 
-
+	<span>Від <%= order.product.cost%> за добу</span>
 	<br> 
-	<h4>Перейти на сайт</h4>
-	<%= link_to "Delete", delete_order_path(:id=>order.id), method: :put, data: {confirm: 'are_you_sure?'}, class: 'btn btn-sm btn-size btn-info' %> 
+	<%= link_to "Видалити", delete_order_path(:id=>order.id), method: :put, data: {confirm: 'are_you_sure?'}, class: 'btn btn-sm btn-size btn-info' %> 
 	<hr>
 
 	<%end%>
@@ -29,32 +24,25 @@
 	<div id="map"></div>
 
 
-</div>
+</div> 
 
 
 <script src="https://maps.googleapis.com/maps/api/js"></script>
+ <script type="text/javascript">
+$(document).ready(function() {
+    $(".single_2").fancybox({
+      openEffect  : 'none',
+      closeEffect : 'none',
+    });
+});
+   
+  </script>
+  <% @orders.each do |order| %>
 <script>
 	
 function initialize(){
 
- var features = [
-          {
-            position: new google.maps.LatLng(48.625148, 22.947258),
-            type: 'info'
-          }, {
-            position: new google.maps.LatLng(48.5610078, 22.4374783),
-            type: 'info'
-          }, {
-            position: new google.maps.LatLng(48.6236075, 22.9333669),
-            type: 'info'
-          }];
-
- 		features.forEach(function(feature) {
-          var marker = new google.maps.Marker({
-            position: feature.position
-           
-          });
-        });
+ 
 		var mapCanvas = document.getElementById('map');
 		var mapOptions = {
 			center: new google.maps.LatLng(48.27,22.9),
@@ -62,13 +50,42 @@ function initialize(){
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 		var map = new google.maps.Map(mapCanvas, mapOptions);
+	
+	var Lat = (<%= order.product.lat%>); 
+    var Lng = (<%= order.product.lng%>);
+    var coordinates = new google.maps.LatLng(Lat, Lng); 
 
-		
+    var Latit = (<%= order.product.lat%>); 
+    var Lngit= (<%= order.product.lng%>);
+    var coordinatesit = new google.maps.LatLng(Latit, Lngit);
+
+
+
+				locations = [
+    [48.6236075,22.9333669],
+    [48.625148,22.947258],
+    [48.5931465,22.972106],
+    
+    [48.5901842,22.9746168]
+  ];
+
+      for (var i=0; i<locations.length; i++) {
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+        position: coordinates,
+        map: map
+      });
+       var marker = new google.maps.Marker({
+        position: coordinatesit,
+        map: map
+      })
+    }
 
 		marker.setMap(map);
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
 
 </script>
+<% end %>
 
 </body>

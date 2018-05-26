@@ -11,8 +11,10 @@ class OrdersController < ApplicationController
 
   end
 
+
   def index
   	@orders = Order.where(user_id: current_user.id).where(is_cart: true)
+    @product = Product.find_by_id(params[:id])
     
   end
 
