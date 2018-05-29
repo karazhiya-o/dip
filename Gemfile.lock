@@ -68,6 +68,7 @@ GEM
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.3)
+    byebug (10.0.0)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -249,6 +250,7 @@ DEPENDENCIES
   activeadmin
   bootstrap-sass
   bootstrap-will_paginate
+  byebug
   coffee-rails (~> 4.2)
   devise
   fancybox-rails
@@ -258,7 +260,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   paperclip
-  pg (= 0.20.0)
+  pg
   puma (~> 3.0)
   rails (~> 5.0.2)
   sass-rails (~> 5.0)
