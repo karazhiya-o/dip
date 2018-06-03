@@ -1,12 +1,16 @@
 * {box-sizing: border-box;}
 
-.mySlides {display: none;}
+.mySlides {
+  display: none;
+  
+  }
 img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 100%;
- 
+  width: 100%;
+  height: 100%;
+  left:5%1;
   position: relative;
   margin: auto;
   z-index: -1;
@@ -43,6 +47,8 @@ img {vertical-align: middle;}
   -webkit-animation-duration: 3.5s;
   animation-name: fade;
   animation-duration: 3.5s;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 @-webkit-keyframes fade {
