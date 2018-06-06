@@ -2,7 +2,7 @@
 <html>
   <head>
     <title> Рекреація Закарпаття </title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tag %>
@@ -14,13 +14,13 @@
   <ul class="nav navbar-nav">
     <li><%= link_to "Рекреаційні зони", root_path%> </li>
       <% if user_signed_in? %>
-      <li><%= link_to "My Cart", orders_path %></li>
+      <li><%= link_to "Збережене", orders_path %></li>
       <li><%= link_to current_user.email, profile_path  %></li>
-      <li><%= link_to 'Logout', sign_out_path %></li>
+      <li><%= link_to 'Вихід', sign_out_path %></li>
        <% else %>
     
-      <li><%= link_to 'Registration', sign_up_path %></li>
-      <li><%= link_to 'Login', sign_in_path %></li>
+      <li><%= link_to 'Реєстрація', sign_up_path %></li>
+      <li><%= link_to 'Вхід', sign_in_path %></li>
        <% end %>
     </ul>
 </nav>

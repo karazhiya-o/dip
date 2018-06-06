@@ -2,6 +2,8 @@
   <head>
  <link rel="stylesheet" type="text/css" href="products.scss" media="screen" />
  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"> 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
 
 
@@ -72,19 +74,19 @@
     </div>
 
 
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript">
 $(document).ready(function() {
   $(".fancybox").fancybox({
     openEffect  : 'none',
     closeEffect : 'none'
   });
-
 });
    
   </script>
- <script>
 
+ <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyCz7uaBaPFkRM6TV6EPlajVqfPvmsCzjZw"></script>
+
+ <script>
 if (navigator.geolocation) { //Checks if browser supports geolocation
    navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
      var latitude = position.coords.latitude;                    //users current
@@ -108,7 +110,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
        },
        mapTypeId: google.maps.MapTypeId.ROADMAP //sets type of map Options:ROADMAP, SATELLITE, HYBRID, TERRIAN
      };
-     map = new google.maps.Map( /*creates Map variable*/ document.getElementById("maps"), mapOptions /*Creates a new map using the passed optional parameters in the mapOptions parameter.*/);
+     map = new google.maps.Map(document.getElementById("maps"), mapOptions);
      directionsDisplay.setMap(map);
      directionsDisplay.setPanel(document.getElementById('panel'));
      var request = {
@@ -116,7 +118,6 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
        destination: coordinates,
        travelMode: google.maps.DirectionsTravelMode.DRIVING
      };
-
      directionsService.route(request, function (response, status) {
        if (status == google.maps.DirectionsStatus.OK) {
          directionsDisplay.setDirections(response);
@@ -124,9 +125,6 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
      });
    });
  }
-
-
-
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {  
   var start = document.getElementById('coords').value;  
   var end = document.getElementById('coordinates').value;  
@@ -142,13 +140,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }  
   });  
 }
-
     </script>
-
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz7uaBaPFkRM6TV6EPlajVqfPvmsCzjZw&callback=initMap">
-    </script>
-
 
 </body>
 </html>

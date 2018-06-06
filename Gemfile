@@ -32,6 +32,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'tinymce-rails'
+
 #Activeadmin(adminka)
 gem 'activeadmin'
 
@@ -52,6 +53,7 @@ gem "paperclip"
 
 group :development, :test do
   
+   gem 'railroady'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end

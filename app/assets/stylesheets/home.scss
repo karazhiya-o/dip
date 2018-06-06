@@ -19,7 +19,9 @@
 
 .row{
   width:60%;
-  margin-top: 20%;
+  max-width:100%;
+  height: auto;
+  margin-top: 10%;
 }
 
 .container{
@@ -35,15 +37,16 @@
 body{
    background: #F5F4EB;
   
-    margin-top: 30px;
+    margin-top: 9%;
     background-position: center;
 }
 
-  #map-canvas {
-  margin-top:20%;
-  border: 2px black;
+#map-canvas {
+  margin-top: 10%;
+  
   float: right;
   width: 40%;
+  max-wight: 100%;
   height: 500px;
   }
 
@@ -56,7 +59,7 @@ body{
   background: #fff none repeat scroll 0 0;
   border: 1px solid #c0c0c0;
   height: 40%;
-
+  max-width: 100%;
   overflow: hidden;
   
   position: relative;

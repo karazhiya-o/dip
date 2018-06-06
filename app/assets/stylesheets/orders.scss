@@ -16,23 +16,17 @@ span{
     text-align:center !important;
 }
 #sidebar {
-	  		
-            float: left;
-
-            width: 30%;
-            position: absolute;
-            
-  			overflow-y: scroll;
-
-            height: 100%;
-           
-          
+	  float: left;
+    width: 30%;
+    position: absolute;
+		overflow-y: scroll;
+    height: 100%;          
 
 }
 
 
 .container{
-   margin-top: 9%;
+  
   width:100%;
 }
 
@@ -44,7 +38,7 @@ span{
 
 #map {
   
- 
+
   float: right;
   position: fixed;
   width: 69%;

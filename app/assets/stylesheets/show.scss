@@ -5,14 +5,15 @@
   
   }
 img {vertical-align: middle;}
-
+ 
 /* Slideshow container */
 .slideshow-container {
-  width: 100%;
-  height: 100%;
-  left:5%1;
-  position: relative;
-  margin: auto;
+width: 100%;
+height:auto;
+
+ 
+  position: fixed;
+  //margin: auto;
   z-index: -1;
 }
 
@@ -32,6 +33,7 @@ img {vertical-align: middle;}
 .dot {
   height: 15px;
   width: 15px;
+  position: fixed;
   margin: 0 2px;
   background-color: white;
   border-radius: 50%;
@@ -47,6 +49,8 @@ img {vertical-align: middle;}
   -webkit-animation-duration: 3.5s;
   animation-name: fade;
   animation-duration: 3.5s;
+  width:100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
 }
@@ -71,8 +75,8 @@ img {vertical-align: middle;}
 body {
   font-family: 'Montserrat', 'Helevtica', sans-serif;
   position: relative;
-  width: 100%;
-  height: 100vh;
+  max-width: 100%;
+  height: auto;
  
   display: flex;
   justify-content: center;
@@ -85,8 +89,8 @@ body {
  font: italic small-caps bold 16px/2;
  
  color: white;
-  position: absolute;
-  top: 30%;
+  position: fixed;
+  top: 40%;
   left: 50%;
   width: 80%;
   margin: 0 auto;
@@ -96,19 +100,20 @@ body {
   }
 
 .field-container {
-  position: absolute;
-  top:40%;
+  position: fixed;
+  top: 50%;
   padding-left: 90px;
   margin: 0;
   border: 0;
   width: 80%;
+  max-width: 100%;
   height: 75px;
   
 }
 
 
 .area {
-  
+  max-width: 100%;
   height: 65px !important;
   border: 1px solid #c9d0d6 !important;
   border-radius: 3px !important;
